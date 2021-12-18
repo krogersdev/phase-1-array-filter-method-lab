@@ -1,16 +1,11 @@
-function findMatching(arr, driver) {
-    return arr.filter(el => el.toLowerCase().indexOf(driver.toLowerCase()) !== -1)
+function findMatching(drivers, str) {
+    return drivers.filter(driver => driver.toLowerCase() === str.toLowerCase())
 }    
 
-function fuzzyMatch(arr, driver) {
-    return arr.filter(el => el.toLowerCase().indexOf(driver.toLowerCase()) === 0)
+function fuzzyMatch(drivers, str) {
+    return drivers.filter(driver => driver.slice(0, str.length) === str)
 }
 
-function matchName (arr, driver) {
-    let result = arr.filter(el => el.name === driver)
-    
-    if(result) {
-        return result;
-    }
-   
+function matchName (drivers, str) {
+    return drivers.filter(driver => driver.name === str) 
 }
